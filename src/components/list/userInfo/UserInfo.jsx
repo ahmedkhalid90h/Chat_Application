@@ -6,7 +6,7 @@ import { FaEdit } from "react-icons/fa";
 const Userinfo = () => {
     console.log('object')
     return (
-        <div className='userinfo'>
+        <div className='userInfo'>
             <div className="user">
                 <RxAvatar className='icon'/>
                 <h2>John Doe</h2>
