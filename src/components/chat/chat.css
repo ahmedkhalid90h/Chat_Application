@@ -46,7 +46,7 @@
         display: flex;
         gap: 20px;
   
-        img {
+        .icon {
           width: 20px;
           height: 20px;
         }
@@ -56,7 +56,7 @@
     .center {
       padding: 20px;
       flex: 1;
-      overflow: scroll;
+      overflow: auto;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -76,7 +76,7 @@
           }
         }
   
-        img {
+        .icon {
           width: 30px;
           height: 30px;
           border-radius: 50%;
@@ -107,6 +107,18 @@
         }
       }
     }
+  .center::-webkit-scrollbar {
+      width: 8px;
+  }
+  
+  .center::-webkit-scrollbar-thumb {
+      background-color: rgba(17, 25, 40, 0.5);
+      border-radius: 4px;
+  }
+  
+  .center::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(12, 17, 26, 0.5);
+  }
   
     .bottom {
       padding: 20px;
@@ -168,3 +180,4 @@
       }
     }
   }
+
