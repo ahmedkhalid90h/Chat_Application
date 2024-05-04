@@ -22,9 +22,11 @@
           height: 60px;
           border-radius: 50%;
           object-fit: cover;
+          color: #c2c2c2;
         }
-  
+        
         .texts {
+          color: #c2c2c2;
           display: flex;
           flex-direction: column;
           gap: 5px;
@@ -49,6 +51,7 @@
         .icon {
           width: 20px;
           height: 20px;
+          color: #c2c2c2;
         }
       }
     }
@@ -81,6 +84,7 @@
           height: 30px;
           border-radius: 50%;
           object-fit: cover;
+          color: #c2c2c2;
         }
         .texts {
           flex: 1;
@@ -138,6 +142,7 @@
         width: 20px;
         height: 20px;
         cursor: pointer;
+        color: #c2c2c2;
       }
   
       input {

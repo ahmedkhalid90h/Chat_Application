@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './chatlist.css'
 import { RxAvatar } from "react-icons/rx";
-import { FaSearch, FaPlus, FaMinus } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa6";
 
 const CahtList = () => {
 
     
-    const [addBtn, setAddBtn] = useState(true)
+    const [addBtn, setAddBtn] = useState(false)
     return (
         
         <div className='chatList'>
@@ -15,19 +16,21 @@ const CahtList = () => {
                     <FaSearch className='icon' />
                     <input type="text" placeholder='Search' />
                 </div>
-                {addBtn ? (
-                    <FaPlus 
-                        onClick={() => setAddBtn(!addBtn)}
-                        className='add'
-                    />
-                ) : (
-                    <FaMinus 
-                        onClick={() => setAddBtn(!addBtn)}
-                        className='add'
-                    />
-                )}
+                <div className="bgDark">
+                    {addBtn ? (
+                        <FaPlus 
+                            onClick={() => setAddBtn(!addBtn)}
+                            className='add'
+                        />
+                    ) : (
+                        <FaMinus 
+                            onClick={() => setAddBtn(!addBtn)}
+                            className='add'
+                        />
+                    )}
+                </div>
             </div>
-            
+            <FaMinus />
             <div className="item">
                 <RxAvatar className='icon' />
                 <div className="texts">

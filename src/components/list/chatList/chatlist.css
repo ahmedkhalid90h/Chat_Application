@@ -31,14 +31,17 @@
         }
       }
       
-      .add {
-        width: 20px;
-        height: 20px;
+      .bgDark{
         background-color: rgba(17, 25, 40, 0.5);
-        padding: 10px;
-        color: #c2c2c2;
-        border-radius: 10px;
-        cursor: pointer;
+        padding: 5px;
+        border-radius: 13px;
+
+        .add {
+          width: 20px;
+          height: 20px;
+          color: #c2c2c2;
+          cursor: pointer;
+        }
       }
     }
   
@@ -55,6 +58,7 @@
         height: 50px;
         border-radius: 50%;
         object-fit: cover;
+        color: #c2c2c2;
       }
   
       .texts {
