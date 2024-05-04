@@ -96,7 +96,7 @@ const Chat = () => {
                 
                 <div className="message own">
                     <div className="texts">
-                    <img src="../../../public/lee-campbell-DtDlVpy-vvQ-unsplash.jpg" alt="" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAAHCs86lQI45ooVNvn0igQfL6XMaIxkgpxQ&s" alt="" />
                         <p>Lorem eatae reiciendis   commodi necessitatibus quae quis ut. Aspernatur aperiam illo recusandae numquam provident? At autem assumenda impedit.</p>
                         <span>1 min ago</span>
                     </div>
