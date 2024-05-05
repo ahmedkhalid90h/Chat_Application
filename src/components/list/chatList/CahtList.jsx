@@ -3,6 +3,7 @@ import './chatlist.css'
 import { RxAvatar } from "react-icons/rx";
 import { FaSearch } from "react-icons/fa";
 import { FaPlus, FaMinus } from "react-icons/fa6";
+import AddUser from './addUser/AddUser';
 
 const CahtList = () => {
 
@@ -66,6 +67,7 @@ const CahtList = () => {
                     <p>Hello for</p>
                 </div>
             </div>
+            <AddUser />
         </div>
     )
 }
