@@ -6,6 +6,7 @@ const AddUser = () => {
         <div className='addUser'>
             <form>
                 <input type="text" placeholder='Username' name="username" id="" />
+                <button>Search</button>
             </form>
             <div className="user">
                 <div className="ditail">

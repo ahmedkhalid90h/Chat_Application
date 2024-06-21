@@ -19,12 +19,12 @@ const CahtList = () => {
                 </div>
                 <div className="bgDark">
                     {addBtn ? (
-                        <FaPlus 
+                        <FaMinus 
                             onClick={() => setAddBtn(!addBtn)}
                             className='add'
                         />
                     ) : (
-                        <FaMinus 
+                        <FaPlus 
                             onClick={() => setAddBtn(!addBtn)}
                             className='add'
                         />
@@ -67,7 +67,7 @@ const CahtList = () => {
                     <p>Hello for</p>
                 </div>
             </div>
-            <AddUser />
+            {addBtn && <AddUser />}
         </div>
     )
 }
