@@ -2,6 +2,7 @@ import './detail.css'
 import { RxAvatar } from "react-icons/rx";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { MdOutlineFileDownload } from "react-icons/md";
+import { auth } from '../../lib/firebase';
 
 
 
@@ -173,7 +174,7 @@ const Detail = () => {
                     </div>
                 </div>
                 <button>Block User</button>
-                <button className="logout">Logout</button>
+                <button className="logout" onClick={()=>auth.signOut()}>Logout</button>
             </div>
         </div>
     )

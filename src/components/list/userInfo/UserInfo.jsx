@@ -1,15 +1,16 @@
 import './userinfo.css'
 import { IoIosMore, IoIosVideocam } from "react-icons/io";
-import { RxAvatar } from "react-icons/rx";
 import { FaEdit } from "react-icons/fa";
+import { userStore } from '../../../lib/userStore';
 
 const Userinfo = () => {
-    console.log('object')
+    const { currentUser } = userStore()
+
     return (
         <div className='userInfo'>
             <div className="user">
-                <RxAvatar className='icon'/>
-                <h2>John Doe</h2>
+                <img src={currentUser.imgUrl || '../../../../public/userImag.png'} className='icon'/>
+                <h2>{currentUser.username}</h2>
             </div>
             <div className="icons">
                 <IoIosMore className='icon'/>

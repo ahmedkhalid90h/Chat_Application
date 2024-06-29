@@ -4,12 +4,33 @@ import Detail from './components/detail/Detail';
 import List from './components/list/List';
 import Login from './components/login/Login';
 import Notification from './components/notification/Notification';
+import { useEffect } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './lib/firebase';
+import { userStore } from './lib/userStore';
 
 function App() {
-  const user = false
+
+  const { currentUser, isLoading, fetchUserInfo } = userStore()
+  
+  useEffect(() => {
+    const unSub = onAuthStateChanged(auth, (user) => {
+      fetchUserInfo(user?.uid)
+    })
+    return () => {
+      unSub()
+    }
+  }, [fetchUserInfo])
+
+  console.log(currentUser)
+
+  if (isLoading) {
+    return <div className='loading'>Loading...</div>
+  }
+  
   return (
     <div className="container">
-      {user ? (
+      {currentUser ? (
         <>
         <List />
         <Chat />
@@ -27,6 +48,7 @@ export default App;
 
 
 /**
+
  * rafc
   import React from 'react'
 
