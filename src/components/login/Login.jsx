@@ -7,7 +7,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
-import { doc, setDoc } from 'firebase/firestore';
+import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import upload from '../../lib/upload';
 
 const Login = () => {
@@ -30,46 +30,60 @@ const Login = () => {
     const formData = new FormData(e.target)
     const { username, email, password } = Object.fromEntries(formData)
 
+    if (!username || !email || !password)
+      return toast.warn("Please enter inputs!");
+    if (!avatar.file) return toast.warn("Please upload an avatar!");
+
+    const usersRef = collection(db, "users");
+    const q = query(usersRef, where("username", "==", username));
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      return toast.warn("Select another username");
+    }
+
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      const imgUrl = await upload(avatar.file)
+
+      const imgUrl = await upload(avatar.file);
+
       await setDoc(doc(db, "users", res.user.uid), {
         username,
         email,
-        imgUrl,
+        avatar: imgUrl,
         id: res.user.uid,
         blocked: [],
-      })
+      });
 
       await setDoc(doc(db, "userchats", res.user.uid), {
-        chat: [],
-      })
+        chats: [],
+      });
 
-      toast.success('success');
-    } catch (error) {
-      console.error("Firebase Error:", error.code, error.message);
-      toast.error(error.message);
+      toast.success("Account created! You can login now!");
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
-
-  const handelLogin = async e => {
-    e.preventDefault()
-    setLoading(true)
-    const formData = new FormData(e.target)
-    const {email, password } = Object.fromEntries(formData)
-
+  };
+  
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    const formData = new FormData(e.target);
+    const { email, password } = Object.fromEntries(formData);
+    
     try {
-      await signInWithEmailAndPassword(auth, email, password)
-      toast.success('success');
-    } catch (error) {
-      console.error("Firebase Error:", error.code, error.message);
-      toast.error(error.message);
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("success!");
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
 
 
@@ -77,7 +91,7 @@ const Login = () => {
     <div className='login'>
       <div className="item">
         <h2>Welcome in secret chat</h2>
-        <form onSubmit={handelLogin}>
+        <form onSubmit={handleLogin}>
           <input type="text" placeholder='Email' name="email" id="" />
           <input type="password" placeholder='Password' name="password" id="" />
           <button disabled={loading}>{loading ? "loding" : "Sign In"}</button>

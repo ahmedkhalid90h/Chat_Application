@@ -9,13 +9,13 @@ const Userinfo = () => {
     return (
         <div className='userInfo'>
             <div className="user">
-                <img src={currentUser.imgUrl || '../../../../public/userImag.png'} className='icon'/>
+                <img src={currentUser.avatar || "./avatar.png"} alt="" className='icon'/>
                 <h2>{currentUser.username}</h2>
             </div>
             <div className="icons">
-                <IoIosMore className='icon'/>
-                <IoIosVideocam className='icon'/>
-                <FaEdit className='icon'/>
+                <IoIosMore className='icon' />
+                <IoIosVideocam className='icon' />
+                <FaEdit className='icon' />
             </div>
         </div>
     )
