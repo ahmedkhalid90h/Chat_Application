@@ -30,7 +30,7 @@
 * ⚙️ react hooks
 
 ## ✹ Link to the Project ✹
-* [Todo list React App](https://ahmedkhalid90h.github.io//) 
+* [Chating App](https://ahmedkhalid90h.github.io/chat_application/) 
 
 ## ✹ Link to the Diagram Project ✹
 * [Diagram](https://app.eraser.io/workspace/xmBxsEdvYKEwoanGMn7E?origin=share)
