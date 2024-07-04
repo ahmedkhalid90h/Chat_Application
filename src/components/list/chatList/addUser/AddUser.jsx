@@ -1,4 +1,4 @@
-import { arrayUnion, collection, doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore';
+import { arrayUnion, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore';
 import './addUser.css'
 import { db } from '../../../../lib/firebase';
 import { useState } from 'react';
@@ -40,6 +40,20 @@ const AddUser = () => {
                 createdAt: serverTimestamp(),
                 messages: [],
             });
+
+            const userDocRef = doc(userChatsRef, user.id);
+            const currentUserDocRef = doc(userChatsRef, currentUser.id);
+
+            // Check if user document exists
+            const userDocSnap = await getDoc(userDocRef);
+            if (!userDocSnap.exists()) {
+                await setDoc(userDocRef, { chats: [] });
+            }
+
+            const currentUserDocSnap = await getDoc(currentUserDocRef);
+            if (!currentUserDocSnap.exists()) {
+                await setDoc(currentUserDocRef, { chats: [] });
+            }
 
             await updateDoc(doc(userChatsRef, user.id), {
                 chats: arrayUnion({
