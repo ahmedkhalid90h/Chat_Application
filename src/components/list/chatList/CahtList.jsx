@@ -75,7 +75,7 @@ const ChatList = () => {
             <div className="search">
                 <div className="searchBar">
                     <FaSearch className='icon' />
-                    <input type="text" placeholder='Search' />
+                    <input type="text" placeholder='Search' onChange={(e)=>setInput(e.target.value)} />
                 </div>
                 <div className="bgDark">
                     {addBtn ? (
