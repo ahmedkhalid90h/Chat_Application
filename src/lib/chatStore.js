@@ -6,8 +6,8 @@ import { userStore } from './userStore'
 export const chatStore = create((set) => ({
     chatId: null,
     user: null,
-    isCurrentUserBlockes: false,
-    isReceiverBlockes: false,
+    isCurrentUserBlocked: false,
+    isReceiverBlocked: false,
     changeChat: (chatId, user) => {
         const currentUser = userStore.getState().currentUser
 
