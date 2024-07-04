@@ -1,3 +1,47 @@
+# chating app: Chat Manager App
+
+
+![alt text](./public/Screenshot%20from%202024-07-04%2012-48-47.png)
+
+
+## Current Features
+---
+* Chat with all users , 
+* send message and photos 
+* block user 
+* Sign out
+* Login
+
+
+## Planned Features
+---
+* Send voice note and receive it
+* Make a phone call and a camera call
+* hidden deleted message 
+* Edit message or delete
+* Make stories
+
+
+## Technologies
+* ⚙️ js
+* ⚙️ HTML
+* ⚙️ CSS
+* ⚙️ Frameworks
+* ⚙️ react hooks
+
+## ✹ Link to the Project ✹
+* [Todo list React App](https://ahmedkhalid90h.github.io//) 
+
+## ✹ Link to the Diagram Project ✹
+* [Diagram](https://app.eraser.io/workspace/xmBxsEdvYKEwoanGMn7E?origin=share)
+
+Known Issues
+---
+To report issues, please email me at ahmedkhalid90h@gmail.com.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
